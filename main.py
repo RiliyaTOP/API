@@ -1,16 +1,16 @@
 import arcade
 import requests
 
-WIN_W = 1280
-WIN_H = 720
+WIN_W = 600
+WIN_H = 400
 API_KEY = "f3a0fe3a-b07e-4840-a1da-06f18b2ddf13"
 
-lon, lat = 37.677751, 55.757718
+lon, lat = int(input("Догота: ")), int(input("Широта: ")) #37.677751, 55.757718
 width, height = 600, 400
-zoom1, zoom2 = 1,0.5
+zoom = int(input("Масштабирования карты (0-21): "))
 url = (
     f"https://static-maps.yandex.ru/v1?"
-    f"ll={lon},{lat}&spn={zoom1},{zoom2}"
+    f"ll={lon},{lat}&size={width},{height}&z={zoom}"
     f"&apikey={API_KEY}"
 )
 response = requests.get(url)
@@ -21,7 +21,7 @@ with open("map.png", "wb") as f:
 
 class API(arcade.Window):
     def __init__(self,WIN_W, WIN_H):
-        super().__init__()
+        super().__init__(WIN_W, WIN_H)
         self.WINDOW_WIDTH = WIN_W
         self.WINDOW_HEIGHT = WIN_H
         self.ui_camera = arcade.Camera2D()
