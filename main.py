@@ -5,7 +5,7 @@ WIN_W = 600
 WIN_H = 400
 API_KEY = "f3a0fe3a-b07e-4840-a1da-06f18b2ddf13"
 
-lon, lat = int(input("Догота: ")), int(input("Широта: ")) #37.677751, 55.757718
+lon, lat = float(input("Догота: ")) , float(input("Широта: ")) #37.677751, 55.757718
 width, height = 600, 400
 zoom = int(input("Масштабирования карты (0-21): "))
 url = (
